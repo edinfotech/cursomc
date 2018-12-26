@@ -1,6 +1,6 @@
 package com.edinfotech.cursomc.domain;
 
-import java.util.Date;
+import java.util.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
