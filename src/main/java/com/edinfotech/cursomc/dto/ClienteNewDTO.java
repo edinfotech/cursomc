@@ -2,29 +2,52 @@ package com.edinfotech.cursomc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.edinfotech.cursomc.services.validation.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@NotEmpty(message = "Preenchimento Obrigatório")
+	@Length(min = 5, max = 80, message = "O tamanho deve ser entre 5 e 80 caracteres")
 	private String nome;
+
+	@NotEmpty(message = "Preenchimento Obrigatório")
+	@Email(message = "Email inválido")
 	private String email;
-	private String cpdOuCnpj;
+
+	@NotEmpty(message = "Preenchimento Obrigatório")
+	private String cpfOuCnpj;
+
 	private Integer tipo;
-	
+
+	@NotEmpty(message = "Preenchimento Obrigatório")
 	private String logradouro;
+
+	@NotEmpty(message = "Preenchimento Obrigatório")
 	private String numero;
+
 	private String complemento;
 	private String bairro;
+
+	@NotEmpty(message = "Preenchimento Obrigatório")
 	private String cep;
-	
-	private String telefone1;
+
+	@NotEmpty(message = "Preenchimento Obrigatório")
+	private String telefone;
 	private String telefone2;
 	private String telefone3;
-	
+
 	private Integer cidadeId;
-	
+
 	public ClienteNewDTO() {
-		
+
 	}
 
 	public String getNome() {
@@ -43,12 +66,12 @@ public class ClienteNewDTO implements Serializable {
 		this.email = email;
 	}
 
-	public String getCpdOuCnpj() {
-		return cpdOuCnpj;
+	public String getCpfOuCnpj() {
+		return cpfOuCnpj;
 	}
 
-	public void setCpdOuCnpj(String cpdOuCnpj) {
-		this.cpdOuCnpj = cpdOuCnpj;
+	public void setCpfOuCnpj(String cpfOuCnpj) {
+		this.cpfOuCnpj = cpfOuCnpj;
 	}
 
 	public Integer getTipo() {
@@ -99,12 +122,12 @@ public class ClienteNewDTO implements Serializable {
 		this.cep = cep;
 	}
 
-	public String getTelefone1() {
-		return telefone1;
+	public String getTelefone() {
+		return telefone;
 	}
 
-	public void setTelefone1(String telefone1) {
-		this.telefone1 = telefone1;
+	public void setTelefone1(String telefone) {
+		this.telefone = telefone;
 	}
 
 	public String getTelefone2() {
@@ -130,5 +153,5 @@ public class ClienteNewDTO implements Serializable {
 	public void setCidadeId(Integer cidadeId) {
 		this.cidadeId = cidadeId;
 	}
-	
+
 }
