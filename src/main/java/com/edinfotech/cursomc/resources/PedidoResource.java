@@ -13,7 +13,7 @@ import com.edinfotech.cursomc.domain.Pedido;
 import com.edinfotech.cursomc.services.PedidoService;
 
 @RestController
-@RequestMapping(value = "/pedidos/")
+@RequestMapping(value = "/pedidos")
 public class PedidoResource {
 
 	@Autowired
